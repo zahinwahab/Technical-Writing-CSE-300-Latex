@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{graphicx}
+\title{online}
+\author{zahinwahab }
+\date{April 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Simpson's 3/8 rule}
+Simpson's 3/8 rule is another method for numerical integration proposed by Thomas Simpson. It is based upon a cubic interpolation rather than a quadratic interpolation.It is shown in figure \ref{fig:fig1}.Simpson's 3/8 rule is as follows:
+\begin{equation}
+\int_{a}^{b} f(x) dx \approx \frac{3h}{8}[f(a)+3f(\frac{2a+b}{3})+3f(\frac{a+2b}{3})+f(b)]=\frac{(b-a)}{8}[f(a)+3f(\frac{2a+b}{3})+3f(\frac{a+2b}{3})+f(b)]
+\end{equation}
+
+where $b − a = 3h$. The error of this method is:
+$
+
+-\frac{(b-a)^5}{6480}f^(4)(\xi)
+$
+
+where $ \xi$  is some number between $ a$ and   $ b$. Thus, the 3/8 rule is about twice as accurate as the standard method, but it uses one more function value. A composite 3/8 rule also exists, similarly as above.[6]
+
+A further generalization of this concept for interpolation with arbitrary-degree polynomials are the \textcolor{blue}{Newton–Cotes formulas}.
+\begin{figure}[h]
+\label{fig:fig1}
+  \centering
+   \includegraphics[width=0.4\textwidth]{figures/Simpsons_method.png}
+    \caption{Simpson's 3/8 rule}
+    \label{fig:my_label}
+\end{figure}
+\end{document}

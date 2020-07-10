@@ -1,0 +1,38 @@
+\begin{frame}{Metric TSP}
+  Edge costs satisfy the triangle inequality i.e. the shortest path between vertices = the one-hop path between them.  
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=0.2]
+  
+%\draw [help lines] (-10,-10) grid (10,10);
+ \draw[ultra thick] (-10,0) -- (10,0);
+ \node[above,color=textColor] at (0,0) {\textbf{ $1$}};
+ \draw[ultra thick] (0,10) -- (-10,0);
+  \node[above,color=textColor] at (-5,5) {\textbf{ $1$}};
+\draw[ultra thick] (0,10) -- (10,0);
+  \node[above,color=textColor] at (5,5) {\textbf{ $1$}};
+\draw[ultra thick] (0,10) -- (-10,-10);
+  \node[above,color=textColor] at (-5,0) {\textbf{ $1$}};
+\draw[ultra thick] (0,10) -- (10,-10);
+  \node[above,color=textColor] at (5,0) {\textbf{ $1$}};
+ \draw[ultra thick] (-10,0) -- (10,0);
+   \node[above,color=textColor] at (0,0) {\textbf{ $1$}};
+ \draw[ultra thick] (-10,0) -- (-10,-10);
+   \node[above,left,color=textColor] at (-10,-5) {\textbf{ $1$}};
+  \draw[ultra thick] (-10,0) -- (10,-10);
+    \node[above,color=textColor] at (4,-7) {\textbf{ $1$}};
+  \draw[ultra thick] (10,0) -- (-10,-10);
+    \node[above,color=textColor] at (-4,-5) {\textbf{ $1$}};
+ \draw[ultra thick] (10,0) -- (10,-10);
+   \node[above,right,color=textColor] at (10,-5) {\textbf{ $1$}};
+ \draw[ultra thick] (10,-10) -- (-10,-10);
+   \node[above,color=textColor] at (0,-10) {\textbf{ $1$}};
+  \draw[ultra thick,fill=background] (0,10) circle [radius=1]; %c
+\draw[ultra thick,fill=background] (-10,0) circle [radius=1];%d
+\draw[ultra thick,fill=background] (10,0) circle [radius=1];%a
+\draw[ultra thick,fill=background] (-10,-10) circle [radius=1];%b
+\draw[ultra thick,fill=background] (10,-10) circle [radius=1];%b 
+\end{tikzpicture}
+   \caption{A Metric TSP instance.}
+\end{figure} 
+\end{frame}

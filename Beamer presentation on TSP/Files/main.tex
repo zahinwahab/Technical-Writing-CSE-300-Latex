@@ -1,0 +1,266 @@
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+\documentclass{beamer}
+\usepackage{subfiles}
+\usepackage{color}
+\usepackage{tikz}
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+
+\definecolor{background}{rgb}{0.84, 0.92, 0.95}
+\definecolor{myCyan}{rgb}{0.11, 0.71, 0.86}
+\definecolor{myPurple}{rgb}{0.64, 0.46, 0.66}
+\definecolor{myLightPurple}{rgb}{0.835, 0.686, 0.894}
+\definecolor{myOrange}{rgb}{0.96, 0.66, 0.59}
+\definecolor{textColor}{rgb}{0.31,0.20,0.53}
+\definecolor{lineColor}{rgb}{0.68,0.45,0.45}
+\definecolor{myRed}{rgb}{0.964, 0.172, 0.172}
+\definecolor{circleBorder}{rgb}{0.09,0.17,0.39}
+\definecolor{diameterColor}{rgb}{0.22,0.29,0.42}
+\definecolor{myLightBlue}{rgb}{0.76,0.84,0.95}
+\definecolor{myGreen}{rgb}{0.098, 0.709, 0.090}
+
+\title{The Traveling Salesman Problem}
+
+% A subtitle is optional and this may be deleted
+%\subtitle{Optional Subtitle}
+
+\author{Zahin Wahab \and Mursalin Habib}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[BUET] % (optional, but mostly needed)
+{
+  
+  Department of Computer Science \& Engineering\\
+  Bangladesh University of Engineering and Technology
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date{\today}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{Computer Science}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+\pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+\logo{\pgfuseimage{university-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+
+
+% Let's get started
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+
+% Section and subsections will appear in the presentation overview
+% and table of contents.
+
+\begin{frame}{Problem Statement}
+  \setbeamercovered{dynamic}
+
+    \begin{itemize}
+        \item<1-> \textbf{Input} : A complete undirected graph with non-negative edge costs.
+    
+        \item<2-> \textbf{Output} : A minimum cost tour i.e. a cycle that visits all the vertices exactly once.
+    
+    \end{itemize} 
+\end{frame}
+
+
+
+% You can reveal the parts of a slide one at a time
+% with the \pause command:
+
+\subfile{Subfiles/Example.tex}
+
+\subfile{Subfiles/Example2.tex}
+
+
+\begin{frame}{\centering The Traveling Salesman Problem}
+\begin{block}{Question of the Day} \vspace{3mm}
+\centering How do we find an optimal tour?\newline
+\end{block}
+\end{frame}
+
+\begin{frame}{The Brute Force Algorithm}
+\setbeamercovered{dynamic}
+The Brute Force approach:
+    \begin{itemize}
+    \item<2-> Look at all possible tours in the graph. 
+ \item<3-> Compute their costs.
+ \item<4-> Pick the minimum from them.
+    \end{itemize} 
+\end{frame}
+
+
+\begin{frame}{Brute Force Algorithm Complexity}
+\setbeamercovered{dynamic}
+However,
+    \begin{itemize}
+    \item<2-> In a graph on $n$ vertices, there are $(n-1)!$ TSP tours.
+ \item<3-> Computing the cost of a tour takes linear time.
+ \item<4->\textbf{Brute-Force Algorithm running time:} $\text{\# of tours} \times \text{ cost of computing one tour}$
+ $= (n-1)! \times O(n)
+ =O(n!)$
+    \end{itemize} 
+\end{frame}
+
+
+\begin{frame}{An Efficient Algorithm?}
+\setbeamercovered{dynamic}
+ \begin{block}{A Question We Should be Asking Everyday}
+  \vspace{3mm} \centering Can we do better? \newline
+    \end{block}
+\end{frame}
+
+\begin{frame}{An Efficient Algorithm?}
+   We can. But a polynomial time algorithm doesn't seem likely.
+    \begin{itemize}
+     \item<2->  \textit{The Traveling Salesman Problem} has been studied since the 1950s.No amount of significant progress has been made so far.
+    \item<3->  \textbf{Edmonds' Conjecture (1965):} there is no polynomial time algorithm for the \textit{Traveling Salesman Problem}. 
+    \item<4-> Edmonds' Conjecture equivalent to \(P\neq NP\).
+    \item<5-> \textit{The Traveling Salesman Problem} is \alert{NP-Complete}!
+    \end{itemize} 
+\end{frame}
+
+\subfile{Subfiles/CopingWithNPC}
+
+\begin{frame}{Hard to even approximate}
+\setbeamercovered{dynamic}
+There is a catch. \newline \newline
+ \begin{theorem}
+ Unless $P = NP$, there does not exist a polynomial time $\alpha$- approximation algorithm for the \textit{Traveling Salesman Problem}.
+    \end{theorem}
+\end{frame}
+
+\begin{frame}{Coping with NP-Completeness}
+\setbeamercovered{dynamic}
+We can-
+    \begin{itemize}
+    \item<0>  Solve TSP exactly, but take a really long time for it.
+ \item<0> Solve it only approximately, but do it fast.
+ \item<1-> Solve it exactly, but for really special cases.
+    \end{itemize} 
+\end{frame}
+
+\subfile{Subfiles/MetricTSP}
+
+\begin{frame}{Approximation Algorithms for Metric TSP}
+\setbeamercovered{dynamic}
+
+       \begin{itemize}
+    \item Still NP-Complete!
+ \item But there are good approximation algorithms.
+ \begin{itemize}
+     \item \textbf{The MST Heuristic} (a 2-approximation algorithm)
+     \item \textbf{Christofides's Algorithm (1976)} (a $\frac{3}{2}$-approximation algorithm)
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
+% Placing a * after \section means it will not show in the
+% outline or table of contents.
+
+\begin{frame}{To Summarize}
+  \begin{itemize}
+  \item
+    The \textit{Traveling Salesman Problem} is interesting.
+  \item
+    \textit{The Traveling Salesman Problem} is \alert{hard}! 
+  \item
+    Approximation algorithms for NP-Complete Problems are still an active area of research.
+  \end{itemize}
+\end{frame}
+
+
+
+% All of the following is optional and typically not needed. 
+\appendix
+
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{Acknowledgements}
+    
+  \begin{thebibliography}{10}
+    
+  \beamertemplatebookbibitems
+  % Start with overview books.
+
+  \bibitem{Tim Roughgarden2016}
+    Tim Roughgarden.
+    \newblock {\em Stanford CS261 Lecture Notes}.
+    \newblock 2016.
+ 
+    
+  \beamertemplatearticlebibitems
+  % Followed by interesting articles. Keep the list short. 
+
+  \bibitem{Jack Edmonds2000}
+    Jack Edmonds.
+    \newblock Paths, trees, and flowers.
+    \newblock {\em Can. J. Math. 17: 449–467,
+    1965.}
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
+
+

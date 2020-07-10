@@ -1,0 +1,209 @@
+\documentclass{article}
+
+%\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{graphicx}
+\begin{document}
+\begin{titlepage}
+
+\author{Zahin Wahab\\Student ID: 1505031}
+\title{CSE300\textunderscore Assignment1\\Introduction to \LaTeX\\
+\huge DC Motor}
+\date{}
+\maketitle
+\title{~~~~\\~~~\\~~~~\\~~~\\~~~~~\\~~~~\\~~~~\\~~~~~\\}
+\maketitle
+\begin{figure}[h]
+ \centering
+ \includegraphics[width = 0.25\textwidth]{figures/logoBIRN.png}
+ \end{figure}
+ 
+
+        \title{ 
+         \centering 
+         \Large Department of Computer Science and Engineering\\
+         \centering
+         Bangladesh University of Engineering and Technology\\
+         \centering(BUET)\\
+          \centering Dhaka 1000\\
+          ~~~~~~\\
+          \centering \today \\}
+          
+          \maketitle
+          
+    
+
+
+ 
+
+\end{titlepage}
+
+
+\newpage
+\tableofcontents
+\newpage
+\section{Introduction}
+\label{sec:intro}
+
+A \textbf{DC motor} is any of a class of \textcolor{red}{rotary electrical machines} that converts direct current \textbf{electrical energy} into \textbf{mechanical energy}. The most common types rely on the forces produced by magnetic fields. Nearly all types of DC motors have some internal mechanism, either \textbf{electromechanical} or electronic, to periodically change the direction of current flow in part of the motor.
+\subsection{Definition}
+\textit{\textbf{A \textcolor{blue}{DC motor} is a mechanically commutated electric motor
+powered from direct current (DC).}}
+
+\subsection{Principle}
+The principle of working of a DC motor is that "\textbf{whenever a current carrying conductor is placed in a magnetic field, it experiences a mechanical force}". The direction of this force is given by \textcolor{red}{Fleming's left hand rule} and it's magnitude is given by \textbf{$F = BIL$}. Where, $B$ = magnetic flux density, $I$ = current and $L$ = length of the conductor within the magnetic field.
+\subsubsection{Fleming's Left Hand Rule}
+If we stretch the first finger, second finger and thumb of our left hand to be perpendicular to each other AND direction of magnetic field is represented by the first finger, direction of the \textbf{current} is represented by \textbf{second finger} then the \textbf{thumb} represents the direction of the \textbf{force} experienced by the current carrying conductor.
+\subsubsection{How DC Motor Works}
+When \textbf{armature windings} are connected to a DC supply, current sets up in the winding. Magnetic field may be provided by \textbf{field winding (electromagnetism)} or by using \textbf{permanent magnets}. In this case, current carrying armature conductors experience force due to the magnetic field, according to the principle stated above.
+\begin{figure}[h]
+  \centering
+   \includegraphics[width=0.4\textwidth]{figures/dc-motor-parts.jpg}
+    \caption{DC Motor parts}
+    \label{fig:my_label}
+\end{figure}
+
+\textbf{Commutator} is made segmented to achieve unidirectional torque. Otherwise, the direction of force would have reversed every time when the direction of movement of conductor is reversed the magnetic field.
+
+\section{Torque Equations}
+When a DC machine is loaded either as a \textbf{motor} or as a \textbf{generator}, the rotor conductors carry current. These conductors lie in the magnetic field of the air gap. Thus each conductor experiences a \textbf{force}. The conductors lie near the surface of the rotor at a common radius from its center. Hence \textbf{torque} is produced at the circumference of the rotor and rotor starts rotating.
+\begin{figure}[b]
+  \centering
+   \includegraphics[width=0.4\textwidth]{figures/Capture.JPG}
+    \caption{Circuit Diagram}
+    \label{fig:my_label}
+\end{figure}
+The equation of torque is given by, 
+\begin{equation}
+    \tau = FRsin\theta
+\end{equation}
+Where, $F$ is force in linear direction.
+$R$ is radius of the object being rotated,
+and $\theta$ is the angle, the force $F$ is making with $R$ vector.
+
+Referring to the diagram beside, we can see, that if $E$ is the supply voltage, $E_b$ is the back emf produced and $I_a$, $R_a$ are the armature current and armature resistance respectively then the voltage equation is given by,
+
+ \begin{equation}
+ \label{eqn:e}
+    E = E_b+ I_a R_a
+\end{equation}
+
+But keeping in mind that our purpose is to derive the torque equation of DC motor we multiply both sides of equation (\ref{eqn:e}) by $I_a$.
+\begin{equation}
+    E I_a = E_bI_a+ (I_a)^2 R_a
+\end{equation}
+ 
+Now $(I_a)^2 R_a$ is the power loss due to heating of the armature coil, and the true effective mechanical power that is required to produce the desired torque of DC machine is given by,
+ \begin{equation}
+  \label{eqn:pm}
+    P_m = E_bI_a
+\end{equation}
+The mechanical power $P_m$ is related to the electromagnetic torque $T_g$ as,
+\begin{equation}
+\label{eqn:pm2}
+    P_m =T_g \omega
+\end{equation}
+
+ 
+Where, $\omega$ is speed in rad/sec.
+Now equating equation (\ref{eqn:pm}) and (\ref{eqn:pm2})  we get,
+ \begin{equation}
+ \label{eqn:eb}
+    E_bI_a=T_g \omega
+\end{equation}
+
+Now for simplifying the torque equation of DC motor we substitute.
+  \begin{equation}
+  \label{eqn:ebf}
+    E_b=\frac{P \phi Zn}{60A}
+\end{equation}
+Where, $P$ is no of poles,
+$\phi$ is flux per pole,
+$Z$ is no. of conductors,
+$A$ is no. of parallel paths,
+and $N$ is the speed of the DC motor.
+ \begin{equation}
+    \omega = \frac{2\pi N}{60} 
+\end{equation}
+ 
+Substituting equation (\ref{eqn:eb}) and (\ref{eqn:ebf}) in equation (\ref{eqn:pm}), we get:
+ \begin{equation}
+   T_g = \frac{ PZ \phi I_a} {2\pi A} 
+\end{equation}
+The torque we so obtain, is known as the electromagnetic torque of DC motor, and subtracting the mechanical and rotational losses from it we get the mechanical torque.
+Therefore,
+ \begin{equation}
+   T_g =  k_a\phi I_a
+\end{equation}
+where
+ \begin{equation}
+k_a = \frac{PZ} {2\pi A}
+\end{equation}
+This is the torque equation of DC motor.
+ \section {Speed Control Method}
+\textit{ \textbf{DC motor speed control} }is one of the most useful features of the motor. By controlling the speed of the motor, we can vary the speed of the motor according to the requirements and can get the required operation.
+ \subsection {Flux Control Method}
+ As the\textbf{ magnetic flux} depends on the current flowing through the field winding, it can be varied by varying the current through the \textbf{field winding}. This can be achieved by using a variable resistor in a series with the field winding resistor.
+
+Initially, when the \textbf{variable resistor} is kept at its minimum position, the \textbf{rated current} flows through the field winding due to a rated supply voltage, and as a result, the speed is kept normal. When the resistance is increased gradually, the current through the field winding decreases. This in turn decreases the flux produced. Thus, the speed of the motor increases beyond its normal value.
+ 
+\subsection{Armature Control Method}
+With this method, the speed of the DC motor can be controlled by \textbf{controlling} the armature resistance to control the voltage drop across the armature. This method also uses a variable resistor in series with the armature.
+When the variable resistor reaches its minimum value, the armature resistance is at normal one, and therefore, the armature voltage drops. When the resistance value is gradually increased, the voltage across the armature decreases. This in turn leads to decrease in the speed of the motor.
+\subsection{Voltage Control Method}
+Both the above mentioned methods cannot provide speed control in the desirable range. Moreover, the flux control method can affect commutation, whereas the armature control method involves huge \textbf{power loss} due to its usage of resistor in series with the armature. Therefore, a different method is often desirable – the one that controls the supply voltage to control the motor speed.
+\section{Types of DC Motor}
+DC motors are usually classified of the basis of their excitation configuration, as follows -
+\begin{enumerate}
+    \item \textbf{Separately excited } 
+    \item \textbf{Self excited }
+    \end{enumerate}
+    \subsection{Description}
+    \subsubsection{Separately Excited}In the separate motor, we supply the field winding from a separate Dc power source.
+    \subsubsection{Self Excited}
+    In the self-excited motor, the field
+winding is energized by the current produced by the
+motor itself with the help of residual magnetism, and we connect the field
+and armature
+windings in a way help achieving the performance characteristics that means field
+and armature windings can connect in parallel or series, so self-excited motor classified into :
+    \begin{description}
+    
+        \item [\textbf{Series wound:}] Field winding is connected in \textbf{series} with the armature.
+        \item [\textbf{Shunt wound:}]Field winding is connected in \textbf{parallel} with the armature.
+        \newpage
+            \item [\textbf{Compound wound:}] In the compound motor, we have both series and shunt field
+winding, this motor has a
+good starting torque.There are two types of compound wound : 
+        \begin{itemize}
+            \item Long Shunt
+            \item Short Shunt
+        \end{itemize}
+    \end{description}
+\section{Advantages}
+\begin{enumerate}
+    \item It’s more efficient
+as the velocity is determined by the frequency which depends
+on the current, not the voltage.
+\item We have less mechanical energy loss as the friction is less and that enhance the
+efficiency.
+\item It can operate at high-speed under any condition.
+\item There is no sparking so we have less noise during operation.
+\end{enumerate}
+ \section{Applications}
+ \begin{itemize}
+     \item In computer peripherals (disk drives, printers).
+\item Hand-held power tools.
+\item Vehicles ranging from aircraft to automobiles.
+\item In Small cooling fans.
+\item for gramophone records in direct-drive turntables.
+
+ \end{itemize}
+ \begin{figure}[h]
+  \centering
+   \includegraphics[width=0.6\textwidth]{figures/Capture_2.JPG}
+    \caption{Use of DC Motor in cars}
+    \label{fig:my_label}
+\end{figure}
+\end{document}

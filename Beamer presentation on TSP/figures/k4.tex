@@ -1,0 +1,34 @@
+\begin{figure}
+    \centering
+    \label{fig:1}
+    \begin{tikzpicture}[scale=0.25]
+  
+    
+        %\fill[opacity=0] (-13,-6.6) rectangle (6.7,10);
+
+\draw[ultra thick] (22.5,-5) -- (14.5,-5);% a-- b
+\node[above,color=textColor] at (18.5,-5) {\textbf{\Large $2$}};
+
+\draw[ultra thick] (9.9,-3.5) -- (2.25,3.8);%c-a
+\node[above,color=textColor] at (6.2,.2) {\textbf{\Large $1$}};
+\draw[ultra thick] (9.9,-6.2) -- (2.2,-14);%a-d
+\node[above,color=textColor] at (6.05,-9.5) {\textbf{\Large $4$}};
+\draw[ultra thick] (0,2.5) -- (0,-12.5);%c-d
+\node[right,color=textColor] at (0,-5) {\textbf{\Large $6$}};
+
+\draw[ultra thick] (23.7,-3) -- (2,6.5);%c-b
+\node[right,color=textColor] at (15,1.5) {\textbf{\Large $3$}};
+\draw[ultra thick] (23.4,-7) -- (2.4,-16);%d-b
+\node[right,color=textColor] at (14,-12) {\textbf{\Large $5$}};
+
+\draw[ultra thick] (0,5) circle [radius=2.5];%c
+\draw[ultra thick] (0,-15) circle [radius=2.5];%d
+\draw[ultra thick] (12,-5) circle [radius=2.5];%a
+
+\draw[ultra thick] (25,-5) circle [radius=2.5];%b
+\node[color=textColor] at (0,5) {\textbf{\Large \(c\)}};
+\node[color=textColor] at (0,-15) {\textbf{\Large \(d\)}};  \node[color=textColor] at (12,-5) {\textbf{\Large \(a\)}}; 
+\node[color=textColor] at (25,-5) {\textbf{\Large \(b\)}};
+\end{tikzpicture}
+\caption{Example TSP graph. Best TSP tour is \(a\)-\(c\)-\(b\)-\(d\)-\(a\) with cost 13.}
+\end{figure} 
